@@ -13,7 +13,7 @@ namespace ProtoService.Protocol
             LoginReq req = new LoginReq();
             req.Header = new Header();
             req.Header.ProtoID = ProtoID.ReqLogin;
-            req.PlayerID = gid;
+            req.Header.PlayerID = gid;
 
             ProtocolParser.SendMessage(req);
         }

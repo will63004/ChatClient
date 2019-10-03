@@ -25,7 +25,7 @@ namespace Protocol {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxIZWFkZXIucHJvdG8SCHByb3RvY29sGg1wcm90b0lELnByb3RvIj4KBkhl",
-            "YWRlchIiCgdwcm90b0lEGAEgASgOMhEucHJvdG9jb2wuUHJvdG9JRBIQCghQ",
+            "YWRlchIiCgdwcm90b0lEGAEgASgOMhEucHJvdG9jb2wuUHJvdG9JRBIQCghw",
             "bGF5ZXJJRBgCIAEoBGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.ProtoIDReflection.Descriptor, },
@@ -83,7 +83,7 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "PlayerID" field.</summary>
+    /// <summary>Field number for the "playerID" field.</summary>
     public const int PlayerIDFieldNumber = 2;
     private ulong playerID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,7 +1,6 @@
 {
-    "name": "Proxy",
+    "name": "InterfaceAdapter",
     "references": [
-        "GUID:6c286f92f30e5284f9b51a33f4144ebe",
         "GUID:6f02a730fed976540ade412a261f4184"
     ],
     "includePlatforms": [],

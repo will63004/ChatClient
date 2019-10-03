@@ -8,9 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace Protocol {
-  public static partial class echoLogin
+  public static partial class EchoLogin
   {
-    static readonly string __ServiceName = "protocol.echoLogin";
+    static readonly string __ServiceName = "protocol.EchoLogin";
 
     static readonly grpc::Marshaller<global::Protocol.LoginReq> __Marshaller_protocol_LoginReq = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.LoginReq.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.LoginAck> __Marshaller_protocol_LoginAck = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.LoginAck.Parser.ParseFrom);
@@ -28,9 +28,9 @@ namespace Protocol {
       get { return global::Protocol.LoginReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of echoLogin</summary>
-    [grpc::BindServiceMethod(typeof(echoLogin), "BindService")]
-    public abstract partial class echoLoginBase
+    /// <summary>Base class for server-side implementations of EchoLogin</summary>
+    [grpc::BindServiceMethod(typeof(EchoLogin), "BindService")]
+    public abstract partial class EchoLoginBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Protocol.LoginAck> Login(global::Protocol.LoginReq request, grpc::ServerCallContext context)
       {
@@ -39,26 +39,26 @@ namespace Protocol {
 
     }
 
-    /// <summary>Client for echoLogin</summary>
-    public partial class echoLoginClient : grpc::ClientBase<echoLoginClient>
+    /// <summary>Client for EchoLogin</summary>
+    public partial class EchoLoginClient : grpc::ClientBase<EchoLoginClient>
     {
-      /// <summary>Creates a new client for echoLogin</summary>
+      /// <summary>Creates a new client for EchoLogin</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public echoLoginClient(grpc::ChannelBase channel) : base(channel)
+      public EchoLoginClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for echoLogin that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for EchoLogin that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public echoLoginClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public EchoLoginClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected echoLoginClient() : base()
+      protected EchoLoginClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected echoLoginClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected EchoLoginClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
@@ -79,15 +79,15 @@ namespace Protocol {
         return CallInvoker.AsyncUnaryCall(__Method_Login, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override echoLoginClient NewInstance(ClientBaseConfiguration configuration)
+      protected override EchoLoginClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new echoLoginClient(configuration);
+        return new EchoLoginClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(echoLoginBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(EchoLoginBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Login, serviceImpl.Login).Build();
@@ -97,7 +97,7 @@ namespace Protocol {
     /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, echoLoginBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, EchoLoginBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_Login, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protocol.LoginReq, global::Protocol.LoginAck>(serviceImpl.Login));
     }

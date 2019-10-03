@@ -1,8 +1,8 @@
 {
-    "name": "Proxy",
+    "name": "UseCase",
     "references": [
-        "GUID:6c286f92f30e5284f9b51a33f4144ebe",
-        "GUID:6f02a730fed976540ade412a261f4184"
+        "GUID:4b04b2d051eece0488a4bfbd9d8c670f",
+        "GUID:6c286f92f30e5284f9b51a33f4144ebe"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

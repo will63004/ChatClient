@@ -24,19 +24,18 @@ namespace Protocol {
     static LoginReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgtMb2dpbi5wcm90bxIIcHJvdG9jb2waDGhlYWRlci5wcm90byI+CghMb2dp",
-            "blJlcRIgCgZoZWFkZXIYASABKAsyEC5wcm90b2NvbC5IZWFkZXISEAoIcGxh",
-            "eWVySUQYAiABKAQipAEKCExvZ2luQWNrEiAKBmhlYWRlchgBIAEoCzIQLnBy",
-            "b3RvY29sLkhlYWRlchIQCghwbGF5ZXJJRBgCIAEoBBIuCgZyZXN1bHQYAyAB",
-            "KA4yHi5wcm90b2NvbC5Mb2dpbkFjay5Mb2dpblJlc3VsdCI0CgtMb2dpblJl",
-            "c3VsdBILCgdEZWZhdWx0EAASCwoHU3VjY2VzcxABEgsKB0ZhaWx1cmUQAjI8",
-            "CgllY2hvTG9naW4SLwoFTG9naW4SEi5wcm90b2NvbC5Mb2dpblJlcRoSLnBy",
-            "b3RvY29sLkxvZ2luQWNrYgZwcm90bzM="));
+            "CgtMb2dpbi5wcm90bxIIcHJvdG9jb2waDGhlYWRlci5wcm90byIsCghMb2dp",
+            "blJlcRIgCgZoZWFkZXIYASABKAsyEC5wcm90b2NvbC5IZWFkZXIikgEKCExv",
+            "Z2luQWNrEiAKBmhlYWRlchgBIAEoCzIQLnByb3RvY29sLkhlYWRlchIuCgZy",
+            "ZXN1bHQYAyABKA4yHi5wcm90b2NvbC5Mb2dpbkFjay5Mb2dpblJlc3VsdCI0",
+            "CgtMb2dpblJlc3VsdBILCgdEZWZhdWx0EAASCwoHU3VjY2VzcxABEgsKB0Zh",
+            "aWx1cmUQAjI8CglFY2hvTG9naW4SLwoFTG9naW4SEi5wcm90b2NvbC5Mb2dp",
+            "blJlcRoSLnByb3RvY29sLkxvZ2luQWNrYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.HeaderReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.LoginReq), global::Protocol.LoginReq.Parser, new[]{ "Header", "PlayerID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.LoginAck), global::Protocol.LoginAck.Parser, new[]{ "Header", "PlayerID", "Result" }, null, new[]{ typeof(global::Protocol.LoginAck.Types.LoginResult) }, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.LoginReq), global::Protocol.LoginReq.Parser, new[]{ "Header" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.LoginAck), global::Protocol.LoginAck.Parser, new[]{ "Header", "Result" }, null, new[]{ typeof(global::Protocol.LoginAck.Types.LoginResult) }, null)
           }));
     }
     #endregion
@@ -69,7 +68,6 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoginReq(LoginReq other) : this() {
       header_ = other.header_ != null ? other.header_.Clone() : null;
-      playerID_ = other.playerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -89,17 +87,6 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 2;
-    private ulong playerID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LoginReq);
@@ -114,7 +101,6 @@ namespace Protocol {
         return true;
       }
       if (!object.Equals(Header, other.Header)) return false;
-      if (PlayerID != other.PlayerID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -122,7 +108,6 @@ namespace Protocol {
     public override int GetHashCode() {
       int hash = 1;
       if (header_ != null) hash ^= Header.GetHashCode();
-      if (PlayerID != 0UL) hash ^= PlayerID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -140,10 +125,6 @@ namespace Protocol {
         output.WriteRawTag(10);
         output.WriteMessage(Header);
       }
-      if (PlayerID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(PlayerID);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -154,9 +135,6 @@ namespace Protocol {
       int size = 0;
       if (header_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Header);
-      }
-      if (PlayerID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PlayerID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -175,9 +153,6 @@ namespace Protocol {
         }
         Header.MergeFrom(other.Header);
       }
-      if (other.PlayerID != 0UL) {
-        PlayerID = other.PlayerID;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -194,10 +169,6 @@ namespace Protocol {
               Header = new global::Protocol.Header();
             }
             input.ReadMessage(Header);
-            break;
-          }
-          case 16: {
-            PlayerID = input.ReadUInt64();
             break;
           }
         }
@@ -232,7 +203,6 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoginAck(LoginAck other) : this() {
       header_ = other.header_ != null ? other.header_.Clone() : null;
-      playerID_ = other.playerID_;
       result_ = other.result_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -250,17 +220,6 @@ namespace Protocol {
       get { return header_; }
       set {
         header_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 2;
-    private ulong playerID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = value;
       }
     }
 
@@ -289,7 +248,6 @@ namespace Protocol {
         return true;
       }
       if (!object.Equals(Header, other.Header)) return false;
-      if (PlayerID != other.PlayerID) return false;
       if (Result != other.Result) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -298,7 +256,6 @@ namespace Protocol {
     public override int GetHashCode() {
       int hash = 1;
       if (header_ != null) hash ^= Header.GetHashCode();
-      if (PlayerID != 0UL) hash ^= PlayerID.GetHashCode();
       if (Result != 0) hash ^= Result.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -317,10 +274,6 @@ namespace Protocol {
         output.WriteRawTag(10);
         output.WriteMessage(Header);
       }
-      if (PlayerID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(PlayerID);
-      }
       if (Result != 0) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Result);
@@ -335,9 +288,6 @@ namespace Protocol {
       int size = 0;
       if (header_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Header);
-      }
-      if (PlayerID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PlayerID);
       }
       if (Result != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Result);
@@ -359,9 +309,6 @@ namespace Protocol {
         }
         Header.MergeFrom(other.Header);
       }
-      if (other.PlayerID != 0UL) {
-        PlayerID = other.PlayerID;
-      }
       if (other.Result != 0) {
         Result = other.Result;
       }
@@ -381,10 +328,6 @@ namespace Protocol {
               Header = new global::Protocol.Header();
             }
             input.ReadMessage(Header);
-            break;
-          }
-          case 16: {
-            PlayerID = input.ReadUInt64();
             break;
           }
           case 24: {
