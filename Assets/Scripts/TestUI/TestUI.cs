@@ -1,5 +1,7 @@
-﻿using System;
+﻿using InterfaceAdapter.Adapter.Login;
+using System;
 using TMPro;
+using Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +21,8 @@ public class TestUI:MonoBehaviour
     {
         ulong id = Convert.ToUInt64(playerID.text);
 
-        TmpDI.Instance.Login.StartLogin(id);
+        IUnityContainer container = GameStart.container;
+        var login = container.Resolve<LoginAdapter>();
+        login.StartLogin(id);
     }
 }
