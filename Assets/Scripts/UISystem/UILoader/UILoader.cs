@@ -1,8 +1,8 @@
 ﻿using Game.Database;
-using System.Threading.Tasks;
+using Game.UI;
 using UnityEngine;
 
-namespace Game.UI
+namespace UISystem
 {
     public class UILoader:IUILoader
     {
@@ -23,6 +23,13 @@ namespace Game.UI
         public T LoadUI<T>(eUIPrefab prefab) where T: Object
         {
             string path = UIPrefabTable.GetUIPath(prefab);
+            T go = Resources.Load<T>(path);
+            return go;
+        }
+
+        public T LoadUI<T>(int index) where T : Object
+        {
+            string path = UIPrefabTable.GetUIPath(index);
             T go = Resources.Load<T>(path);
             return go;
         }

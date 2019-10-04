@@ -10,5 +10,10 @@ namespace Game.Database.UnityScriptableObject
         {
             return GetPath((int)type);
         }
+
+        public string GetUIPath(int index)
+        {
+            return GetPath(index);
+        }
     }
 }

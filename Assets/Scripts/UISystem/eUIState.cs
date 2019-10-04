@@ -1,4 +1,4 @@
-﻿namespace Game.UI
+﻿namespace UISystem
 {
     public enum eUIState
     {

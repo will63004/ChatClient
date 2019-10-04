@@ -1,7 +1,6 @@
-﻿using System;
-using Game.Database;
+﻿using Game.Database;
 using Game.Scene;
-using Game.UI;
+using UISystem;
 using UnityEngine;
 
 namespace Game.Main
