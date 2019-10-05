@@ -15,9 +15,14 @@ namespace UISystem
 
         public bool Open(int index)
         {
-            view = container.GetUIPrefab(index);
+            init(index);            
 
             return true;
+        }
+
+        private void init(int index)
+        {
+            view = container.GetUIPrefabUnderRoot(index);
         }
 
         public bool Close()

@@ -2,7 +2,7 @@
 
 namespace UISystem
 {
-    public class UIController
+    public class UIController: IUIController
     {
         private UIContext context;
 

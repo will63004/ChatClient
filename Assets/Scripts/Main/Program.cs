@@ -13,8 +13,6 @@ using InterfaceAdapter.Adapter.Login;
 using Unity;
 using Unity.Injection;
 using UISystem;
-using UISystem.UIImplContainer;
-using UIImplement;
 
 namespace Main
 {
@@ -48,16 +46,14 @@ namespace Main
 
             container.RegisterSingleton<ISceneSystem, SceneSystem>().Resolve<ISceneSystem>();
             container.RegisterSingleton<IGameSetting, GameSetting>().Resolve<IGameSetting>();
-            container.RegisterSingleton<IUILoader, UILoader>().Resolve<IUILoader>();
-            container.RegisterSingleton<IUISystem, UISystem.UISystem>().Resolve<IUISystem>();
 
+            container.RegisterSingleton<IUILoader, UILoader>().Resolve<IUILoader>();
             container.RegisterSingleton<UIContainer>().Resolve<UIContainer>();
             container.RegisterInstance<IUIImplContainer>(new UIImplContainerBuilder(container).Create());
             container.RegisterSingleton<UIContext>().Resolve<UIContext>();            
             container.RegisterSingleton<IUIView, UIView>().Resolve<IUIView>();
             container.RegisterSingleton<UIPresenter>().Resolve<UIPresenter>();
-            UIController uiController = container.RegisterSingleton<UIController>().Resolve<UIController>();
-            uiController.OpenUI(1);
+            container.RegisterSingleton<IUIController, UIController>().Resolve<IUIController>();            
 
             container.RegisterSingleton<IGameProcessSystem, GameProcessSystem>().Resolve<IGameProcessSystem>();
             GameHost gameHost = container.RegisterSingleton<GameHost>().Resolve<GameHost>();

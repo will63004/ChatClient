@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UISystem.UIImplContainer
+namespace UISystem
 {
     public class UIImplContainer : IUIImplContainer
     {

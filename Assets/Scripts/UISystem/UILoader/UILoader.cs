@@ -1,5 +1,6 @@
 ﻿using Game.Database;
 using Game.UI;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UISystem
@@ -30,7 +31,7 @@ namespace UISystem
         public T LoadUI<T>(int index) where T : Object
         {
             string path = UIPrefabTable.GetUIPath(index);
-            T go = Resources.Load<T>(path);
+            T go = Resources.Load<T>(path);            
             return go;
         }
     }

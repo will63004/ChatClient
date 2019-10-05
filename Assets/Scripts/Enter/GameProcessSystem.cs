@@ -9,15 +9,15 @@ namespace Game.Main
     {
         private IGameSetting gameSetting;
         private ISceneSystem sceneSystem;
-        private IUISystem uiSystem;
+        private IUIController uiController;
 
         private GameProcessContext context;
                 
-        public GameProcessSystem(IGameSetting gameSetting, ISceneSystem sceneSystem, IUISystem uiSystem)
+        public GameProcessSystem(IGameSetting gameSetting, ISceneSystem sceneSystem, IUIController uiController)
         {
             this.gameSetting = gameSetting;
             this.sceneSystem = sceneSystem;
-            this.uiSystem = uiSystem;
+            this.uiController = uiController;
             context = new GameProcessContext();
         }
 
@@ -29,18 +29,18 @@ namespace Game.Main
             //GameSetting.Start();
             AsyncOperation sceneOperation = sceneSystem.ChangeState(eScene.Login);
             sceneOperation.completed += onSceneLoadDone;
-            AsyncOperation uiOperation = uiSystem.ChangeState(eUIState.Login);
-            uiOperation.completed += onUILoadDone;
+
+            switch (process)
+            {
+                case eGameProcess.Login:
+                    uiController.OpenUI(1);
+                    break;
+            }
         }
         private void onSceneLoadDone(AsyncOperation obj)
         {
             Debug.Log("onSceneLoadDone");
             obj.completed -= onSceneLoadDone;
         }
-        private void onUILoadDone(AsyncOperation obj)
-        {
-            Debug.Log("onUILoadDone");
-            obj.completed -= onUILoadDone;
-        }        
     }
 }

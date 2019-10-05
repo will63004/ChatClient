@@ -20,8 +20,7 @@
             context.OpenUIIndexs.Add(index);
             context.DirtyIndexs.Add(index);
 
-            UIUnitState unit;
-            if (context.UnitsState.TryGetValue(index, out unit))
+            if (context.UnitsState.TryGetValue(index, out UIUnitState unit))
             {
                 unit.PreState = unit.State;
                 unit.State = eState.Open;
