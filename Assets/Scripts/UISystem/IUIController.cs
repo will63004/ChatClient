@@ -2,6 +2,7 @@
 {
     public interface IUIController
     {
-        void OpenUI(int index);
+        bool OpenUI(int id);
+        bool CloseUI(int id);
     }
 }

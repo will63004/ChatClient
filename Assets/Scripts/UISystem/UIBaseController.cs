@@ -23,10 +23,13 @@ namespace UISystem
         private void init(int index)
         {
             view = container.GetUIPrefabUnderRoot(index);
+            if (!view.activeSelf)
+                view.SetActive(true);
         }
 
         public bool Close()
         {
+            view.SetActive(false);
             return true;
         }
     }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace UISystem
+﻿namespace UISystem
 {
     public class UIController: IUIController
     {
@@ -14,10 +12,14 @@ namespace UISystem
             this.presenter = presenter;
         }
 
-        public void OpenUI(int index)
+        public bool OpenUI(int id)
         {
-            if (!presenter.OpenUI(index))
-                Debug.LogError("OpenUI Error, Index is " + index);
+            return presenter.OpenUI(id);
+        }
+
+        public bool CloseUI(int id)
+        {
+            return presenter.CloseUI(id);
         }
     }
 }

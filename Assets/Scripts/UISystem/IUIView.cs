@@ -2,6 +2,7 @@
 {
     public interface IUIView
     {
-        void refresh();
+        void Open(int id);
+        void Close(int id);
     }
 }

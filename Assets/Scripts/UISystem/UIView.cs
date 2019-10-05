@@ -11,29 +11,16 @@
             this.implContainer = implContainer;
         }
 
-        public void refresh()
+        public void Open(int id)
         {
-            for (int i = 0; i < context.DirtyIndexs.Count; ++i)
-            {
-                int index = context.DirtyIndexs[i];
-                UIUnitState unit;
-                if (context.UnitsState.TryGetValue(index, out unit))
-                {
-                    if(unit.PreState != unit.State)
-                    {
-                        IUIBaseController bc = implContainer.GetImpl(index);
-                        switch (unit.State)
-                        {
-                            case eState.Open:
-                                bc.Open(index);
-                                break;
-                            case eState.Close:
-                                bc.Close();
-                                break;
-                        }
-                    }
-                }
-            }
+            IUIBaseController bc = implContainer.GetImpl(id);
+            bc.Open(id);
+        }
+
+        public void Close(int id)
+        {
+            IUIBaseController bc = implContainer.GetImpl(id);
+            bc.Close();
         }
     }
 }
