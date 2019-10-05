@@ -6,21 +6,21 @@ namespace UISystem
     {
         private Dictionary<int, IUIBaseController> container = new Dictionary<int, IUIBaseController>();
 
-        public IUIBaseController GetImpl(int index)
+        public IUIBaseController GetImpl(int id)
         {
             IUIBaseController impl;
-            if (container.TryGetValue(index, out impl))
+            if (container.TryGetValue(id, out impl))
                 return impl;
 
             return null;
         }
 
-        public bool AddImpl(int index, IUIBaseController impl)
+        public bool AddImpl(int id, IUIBaseController impl)
         {
-            if (container.ContainsKey(index))
+            if (container.ContainsKey(id))
                 return false;
 
-            container.Add(index, impl);
+            container.Add(id, impl);
             return true;
         }
     }

@@ -35,6 +35,8 @@ namespace UISystem
 
             view.Open(id);
 
+            view.Refresh(id);
+
             return true;
         }
 

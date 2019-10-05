@@ -7,6 +7,6 @@ namespace UISystem
     {
         ResourceRequest LoadUIAsync(eUIPrefab prefab);
         T LoadUI<T>(eUIPrefab prefab) where T : Object;
-        T LoadUI<T>(int index) where T : Object;
+        T LoadUI<T>(int id) where T : Object;
     }
 }

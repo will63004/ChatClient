@@ -19,19 +19,19 @@ namespace UISystem
             return GetUIPrefab(0);
         }
 
-        private GameObject GetUIPrefab(int index)
+        private GameObject GetUIPrefab(int id)
         {
             GameObject go;
-            if (container.TryGetValue(index, out go))
+            if (container.TryGetValue(id, out go))
                 return go;
 
-            go = uiLoader.LoadUI<GameObject>(index);
+            go = uiLoader.LoadUI<GameObject>(id);
             return MonoBehaviour.Instantiate(go);
         }
 
-        public GameObject GetUIPrefabUnderRoot(int index)
+        public GameObject GetUIPrefabUnderRoot(int id)
         {
-            GameObject go = GetUIPrefab(index);
+            GameObject go = GetUIPrefab(id);
             go.transform.SetParent(GetRoot().transform, false);
             return go;
         }

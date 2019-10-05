@@ -22,5 +22,11 @@
             IUIBaseController bc = implContainer.GetImpl(id);
             bc.Close();
         }
+
+        public void Refresh(int id)
+        {
+            IUIBaseController bc = implContainer.GetImpl(id);
+            bc.Refresh();
+        }
     }
 }

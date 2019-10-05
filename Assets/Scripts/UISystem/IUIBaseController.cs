@@ -2,7 +2,9 @@
 {
     public interface IUIBaseController
     {
-        bool Open(int index);
+        bool Open(int id);
         bool Close();
+        void Refresh();
+        void Destory();
     }
 }

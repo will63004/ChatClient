@@ -2,7 +2,7 @@
 {
     public interface IUIImplContainer
     {
-        IUIBaseController GetImpl(int index);
-        bool AddImpl(int index, IUIBaseController impl);
+        IUIBaseController GetImpl(int id);
+        bool AddImpl(int id, IUIBaseController impl);
     }
 }

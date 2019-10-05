@@ -6,31 +6,49 @@ namespace UISystem
     {
         private UIContainer container;
 
-        protected GameObject view;
+        protected IUIBaseContext baseContext;
 
-        public UIBaseController(UIContainer container)
+        protected GameObject baseView;
+
+        public UIBaseController(UIContainer container, IUIBaseContext baseContext)
         {
             this.container = container;
+            this.baseContext = baseContext;
         }
 
-        public bool Open(int index)
+        public bool Open(int id)
         {
-            init(index);            
+            if(baseView == null)
+                Init(id);
+
+            if (!baseView.activeSelf)
+                baseView.SetActive(true);
 
             return true;
         }
 
-        private void init(int index)
+        private void Init(int id)
         {
-            view = container.GetUIPrefabUnderRoot(index);
-            if (!view.activeSelf)
-                view.SetActive(true);
+            baseView = container.GetUIPrefabUnderRoot(id);
+
+            Created();
         }
+
+        protected virtual void Created() { }
 
         public bool Close()
         {
-            view.SetActive(false);
+            baseView.SetActive(false);
             return true;
+        }
+
+        public virtual void Refresh() { }
+
+        public void Destory()
+        {
+            container = null;
+            baseContext = null;
+            baseView = null;
         }
     }
 }
