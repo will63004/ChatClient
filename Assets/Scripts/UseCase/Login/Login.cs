@@ -1,4 +1,5 @@
 ﻿using Game.Player;
+using System;
 
 namespace UseCase.Login
 {
@@ -7,6 +8,8 @@ namespace UseCase.Login
         private Player player;
 
         private ILoginHandler loginHandler;
+
+        public event Action<ulong> OnLoginAck;
 
         public Login(Player player, ILoginHandler loginHandler)
         {
@@ -29,6 +32,8 @@ namespace UseCase.Login
         private void onLoginAck(ulong playerID)
         {
             player.PlayerID = playerID;
+
+            OnLoginAck?.Invoke(playerID);
         }
     }
 }

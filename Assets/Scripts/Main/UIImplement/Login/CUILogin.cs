@@ -1,7 +1,7 @@
 ﻿using InterfaceAdapter.Adapter.Login;
 using UISystem;
 
-namespace UIImplement.Login
+namespace Main.UIImplement.Login
 {
     public class CUILogin : UIBaseController
     {

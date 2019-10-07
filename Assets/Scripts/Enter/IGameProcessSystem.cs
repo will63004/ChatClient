@@ -1,4 +1,4 @@
-﻿namespace Game.Main
+﻿namespace Main
 {
     public interface IGameProcessSystem
     {

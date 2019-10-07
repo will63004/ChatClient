@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UIImplement.Login
+namespace Main.UIImplement.Login
 {
     public class UILogin:MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace UIImplement.Login
         private void Awake()
         {
             login.onClick.AddListener(delegate 
-            {
+            {                
                 OnClickLogin?.Invoke();
             });
         }

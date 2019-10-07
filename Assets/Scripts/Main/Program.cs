@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Game.Database;
 using Game.Scene;
-using Game.Main;
+using Main;
 using Game.Database.UnityScriptableObject;
 using Grpc.Core;
 using TcpService.Service;

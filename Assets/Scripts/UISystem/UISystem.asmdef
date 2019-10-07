@@ -1,15 +1,15 @@
 {
-    "name": "Game.UI",
+    "name": "UISystem",
     "references": [
         "Game.Database",
         "Game.Extension"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": []
 }

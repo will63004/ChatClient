@@ -1,4 +1,4 @@
-﻿using Game.Main;
+﻿using Main;
 
 namespace Main
 {

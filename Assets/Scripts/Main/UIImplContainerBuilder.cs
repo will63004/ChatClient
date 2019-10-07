@@ -1,7 +1,8 @@
-﻿using UIImplement;
-using UIImplement.Login;
+﻿using Main.UIImplement;
+using Main.UIImplement.Login;
 using UISystem;
 using Unity;
+using Unity.Resolution;
 
 namespace Main
 {
@@ -17,9 +18,9 @@ namespace Main
         public IUIImplContainer Create()
         {
             IUIImplContainer uic = container.RegisterSingleton<IUIImplContainer, UIImplContainer>().Resolve<IUIImplContainer>();
-            container.RegisterSingleton<IUIBaseContext, UILoginContext>().Resolve<IUIBaseContext>();
-            container.RegisterSingleton<IUIBaseController, CUILogin>(nameof(CUILogin)).Resolve<IUIBaseController>(nameof(CUILogin));
-
+            container.RegisterSingleton<IUIBaseContext, UILoginContext>(nameof(UILoginContext));
+            container.RegisterSingleton<IUIBaseController, CUILogin>(nameof(CUILogin)).Resolve<IUIBaseController>(nameof(CUILogin),
+                new ParameterOverride(typeof(IUIBaseContext), container.Resolve<IUIBaseContext>(nameof(UILoginContext))));
 
             uic.AddImpl((int)eUIImplement.Login, container.Resolve<IUIBaseController>(nameof(CUILogin)));
 

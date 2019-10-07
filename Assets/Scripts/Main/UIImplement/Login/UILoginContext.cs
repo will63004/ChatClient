@@ -1,6 +1,6 @@
 ﻿using UISystem;
 
-namespace UIImplement.Login
+namespace Main.UIImplement.Login
 {
     public class UILoginContext :IUIBaseContext
     {
