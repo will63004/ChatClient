@@ -26,7 +26,7 @@ namespace Tests
         public void StartLoginTest()
         {
             //Arrange
-            ulong playerID = 8763;
+            ulong playerID = 8763; 
 
             //Act
             login.StartLogin(playerID);
