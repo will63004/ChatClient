@@ -4,6 +4,8 @@ namespace Main.UIImplement.Login
 {
     public class UILoginContext :IUIBaseContext
     {
-        public ulong PlayerID { get; set; } = 8763;
+        public ulong PlayerId { get; set; } = 8763;
+
+        public string Ip { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TcpService.Service
 {
-    public class Client:ITcpClient
+    public class TcpClient:ITcpClient
     {
         public Socket m_socket;
         IPEndPoint m_endPoint;
@@ -14,7 +14,7 @@ namespace TcpService.Service
 
         public event Action<byte[]> OnReceiveHandle;
 
-        public Client(string ip, int port)
+        public TcpClient(string ip, int port)
         {
             m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress iPAddress = IPAddress.Parse(ip);

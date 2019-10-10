@@ -10,9 +10,12 @@ namespace Main.UIImplement.Login
         [SerializeField]
         private TMP_InputField playerID;
         [SerializeField]
+        private TMP_InputField ip;
+        [SerializeField]
         private Button login;
 
         public event Action OnClickLogin;
+        public event Action<string> OnIpChanged;
 
         private void Awake()
         {
@@ -20,6 +23,18 @@ namespace Main.UIImplement.Login
             {                
                 OnClickLogin?.Invoke();
             });
+
+            ip.onValueChanged.AddListener((text) =>
+            {
+                OnIpChanged?.Invoke(text);
+            });
+        }
+
+        private void OnDestroy()
+        {
+            login.onClick.RemoveAllListeners();
+
+            ip.onValueChanged.RemoveAllListeners();
         }
 
         public void SetPlayerID(ulong id)

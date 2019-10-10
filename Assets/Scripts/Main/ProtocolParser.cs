@@ -1,11 +1,12 @@
 ﻿using Google.Protobuf;
 using Protocol;
+using Proxy;
 using System;
 using TcpService.Service;
 
 namespace ProtoService.ProtoBuff
 {
-    public class ProtocolParser
+    public class ProtocolParser:ISendProtocol
     {
         private static ITcpClient m_client;
 
@@ -24,9 +25,9 @@ namespace ProtoService.ProtoBuff
         {
             m_client.OnReceiveHandle -= OnReceiveHandle;
         }
-        public static void SendMessage(IMessage message)
-        {
-            m_client.Send(ProtocolBuffConvert.Serialize(message));
+        public void SendMessage(IMessage message)
+        {   
+            m_client.Send(message.ToByteArray());
         }
 
         private void OnReceiveHandle(byte[] buffer)

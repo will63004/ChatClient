@@ -49,6 +49,10 @@ namespace UISystem
             container = null;
             baseContext = null;
             baseView = null;
+
+            Destoryed();
         }
+
+        protected virtual void Destoryed() { }
     }
 }

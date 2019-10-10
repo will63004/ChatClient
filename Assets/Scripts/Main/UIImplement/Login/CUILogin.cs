@@ -1,4 +1,5 @@
-﻿using InterfaceAdapter.Adapter.Login;
+﻿using System;
+using InterfaceAdapter.Adapter.Login;
 using UISystem;
 
 namespace Main.UIImplement.Login
@@ -24,19 +25,35 @@ namespace Main.UIImplement.Login
 
             view.OnClickLogin += onClickLogin;
 
+            view.OnIpChanged += onIpChanged;
+
             base.Created();
+        }
+
+        protected override void Destoryed()
+        {
+            view.OnClickLogin -= onClickLogin;
+
+            view.OnIpChanged -= onIpChanged;
+
+            base.Destoryed();
         }
 
         public override void Refresh()
         {
-            view.SetPlayerID(context.PlayerID);
+            view.SetPlayerID(context.PlayerId);
 
             base.Refresh();
         }
 
         private void onClickLogin()
         {
-            loginAdapter.StartLogin(context.PlayerID);
+            loginAdapter.StartLogin(context.Ip, context.PlayerId);
+        }
+
+        private void onIpChanged(string text)
+        {
+            context.Ip = text;
         }
     }
 }

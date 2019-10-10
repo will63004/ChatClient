@@ -1,17 +1,17 @@
-﻿using Game.Player;
-using System;
+﻿using System;
+using UseCase.Player;
 
 namespace UseCase.Login
 {
     public class Login: ILogin
     {
-        private Player player;
+        private IPlayer player;
 
         private ILoginHandler loginHandler;
 
         public event Action<ulong> OnLoginAck;
 
-        public Login(Player player, ILoginHandler loginHandler)
+        public Login(IPlayer player, ILoginHandler loginHandler)
         {
             this.player = player;
             this.loginHandler = loginHandler;
@@ -31,7 +31,7 @@ namespace UseCase.Login
 
         private void onLoginAck(ulong playerID)
         {
-            player.PlayerID = playerID;
+            player.SetPlayerID(playerID);
 
             OnLoginAck?.Invoke(playerID);
         }
