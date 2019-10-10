@@ -1,6 +1,6 @@
 ﻿namespace Game.Player
 {
-    public class Player
+    public class PlayerData
     {
         public ulong PlayerID { get; set; }
     }

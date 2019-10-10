@@ -25,7 +25,7 @@ namespace InterfaceAdapter.Adapter.Login
             this.login = login;
         }
 
-        public void StartLogin(ulong playerID)
+        public void StartLogin(string ip, ulong playerID)
         {
             login.StartLogin(playerID);
         }

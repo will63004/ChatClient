@@ -3,13 +3,13 @@ using NSubstitute;
 using NUnit.Framework;
 using System;
 using UseCase.Login;
-
+using UseCase.Player;
 
 namespace Tests
 {
     public class LoginTest
     {
-        private Player player;
+        private IPlayer player;
         private ILogin login;
 
         private ILoginHandler mock;
@@ -17,7 +17,7 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            player = new Player();
+            player = new Player(new PlayerData());
             mock = Substitute.For<ILoginHandler>();
             login = new Login(player, mock);            
         }
